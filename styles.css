@@ -1,0 +1,242 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red:        #CC1F1F;
+  --red-light:  #FCEBEB;
+  --red-border: #E53030;
+  --green:      #1D9E75;
+  --green-light:#E1F5EE;
+  --blue:       #185FA5;
+  --blue-light: #E6F1FB;
+  --bg:         #F8F7F5;
+  --surface:    #FFFFFF;
+  --border:     rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.18);
+  --text-primary:   #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --radius-card: 14px;
+  --radius-icon: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #141414;
+    --surface:      #1F1F1F;
+    --border:       rgba(255,255,255,0.09);
+    --border-hover: rgba(255,255,255,0.2);
+    --text-primary:   #F0EDE8;
+    --text-secondary: #888885;
+    --red-light:    #2C1010;
+    --green-light:  #0A2118;
+    --blue-light:   #0A1A2C;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+.lt-root {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+/* ── Header ── */
+.lt-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.lt-logo-img {
+  width: 200px;
+  object-fit: contain;
+  margin-bottom: 2.1rem;
+}
+
+.lt-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.07em;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.lt-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.lt-divider {
+  width: 40px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+  margin: 0.9rem auto 0;
+}
+
+/* ── Section ── */
+.lt-group {
+  margin-bottom: 1.75rem;
+}
+
+.lt-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+  padding-left: 4px;
+}
+
+/* ── Cards ── */
+.lt-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.15s, background 0.15s, transform 0.12s;
+}
+
+.lt-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+.lt-card.accent-red::before  { background: var(--red); }
+.lt-card.accent-green::before { background: var(--green); }
+.lt-card.accent-blue::before  { background: var(--blue); }
+
+.lt-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+.lt-card:active {
+  transform: translateY(0);
+}
+
+/* ── Icon ── */
+.lt-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lt-icon i {
+  font-size: 20px;
+}
+
+.icon-red   { background: var(--red-light);   color: var(--red); }
+.icon-green { background: var(--green-light);  color: var(--green); }
+.icon-blue  { background: var(--blue-light);   color: var(--blue); }
+
+/* ── Card text ── */
+.lt-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lt-app-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lt-app-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lt-arrow {
+  color: var(--text-secondary);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.lt-ti-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ── Footer ── */
+.lt-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.lt-footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.lt-footer-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  vertical-align: middle;
+  margin: 0 6px;
+  position: relative;
+  top: -1px;
+}
+
+.lt-footer-tagline {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 5px;
+}
+
+.lt-footer-copy {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  opacity: 0.7;
+}
