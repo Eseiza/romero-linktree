@@ -12,6 +12,8 @@
   --green-light:#E1F5EE;
   --blue:       #185FA5;
   --blue-light: #E6F1FB;
+  --amber:      #B7791F;
+  --amber-light:#FAEEDA;
   --bg:         #F8F7F5;
   --surface:    #FFFFFF;
   --border:     rgba(0,0,0,0.08);
@@ -33,6 +35,8 @@
     --red-light:    #2C1010;
     --green-light:  #0A2118;
     --blue-light:   #0A1A2C;
+    --amber:        #E0A43A;
+    --amber-light:  #2A1D08;
   }
 }
 
@@ -127,9 +131,10 @@ body {
   border-radius: 3px 0 0 3px;
 }
 
-.lt-card.accent-red::before  { background: var(--red); }
+.lt-card.accent-red::before   { background: var(--red); }
 .lt-card.accent-green::before { background: var(--green); }
 .lt-card.accent-blue::before  { background: var(--blue); }
+.lt-card.accent-amber::before { background: var(--amber); }
 
 .lt-card:hover {
   border-color: var(--border-hover);
@@ -138,6 +143,12 @@ body {
 
 .lt-card:active {
   transform: translateY(0);
+}
+
+/* Apps en testeo: borde punteado */
+.lt-card.is-test {
+  border-style: dashed;
+  border-width: 1px;
 }
 
 /* ── Icon ── */
@@ -158,6 +169,7 @@ body {
 .icon-red   { background: var(--red-light);   color: var(--red); }
 .icon-green { background: var(--green-light);  color: var(--green); }
 .icon-blue  { background: var(--blue-light);   color: var(--blue); }
+.icon-amber { background: var(--amber-light);  color: var(--amber); }
 
 /* ── Card text ── */
 .lt-info {
@@ -201,6 +213,27 @@ body {
   padding: 2px 6px;
   flex-shrink: 0;
   opacity: 0.7;
+}
+
+/* Distintivo de testeo */
+.lt-test-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-light);
+  border: 0.5px solid var(--amber);
+  border-radius: 4px;
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+
+.lt-test-badge i {
+  font-size: 11px;
 }
 
 /* ── Footer ── */
